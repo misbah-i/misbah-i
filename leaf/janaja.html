@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/i/logo.svg" type="image/svg+xml">
+    <title>জানাজা - মিসবাহ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF8E7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        /* Navigation Bar */
+        nav {
+            background-color: #064e3b;
+            padding: 0rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-left,
+        .nav-right {
+            flex: 1;
+        }
+
+        .nav-center {
+            flex: 2;
+            text-align: center;
+        }
+
+        .nav-right ul {
+            justify-content: flex-end;
+        }
+
+        .bismillah {
+            color: #fbbf24;
+            font-weight: bold;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        nav .logo {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 15px;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 10px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #d4af37;
+            color: #064e3b;
+        }
+
+        /* The Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            /* Attached directly to the bottom of the nav bar */
+            top: 100%;
+            left: 0;
+            background-color: #064e3b;
+            /* Matches your nav green */
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+            /* Rounded bottom corners only */
+            padding: 0;
+            z-index: 1001;
+
+            border-top: none;
+            /* Keeps it looking attached to the nav */
+            overflow: hidden;
+            /* Ensures the hover gold color doesn't bleed out */
+        }
+
+        /* Hover effect on the parent <li> */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            display: block;
+            width: 100%;
+            padding: 0;
+            /* Remove padding from li to make links full-width */
+        }
+
+        .dropdown-menu li a {
+            border-radius: 0;
+            padding: 12px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        /* Hover effect inside the dropdown - Matches your yellow/gold theme */
+        .dropdown-menu li a:hover {
+            background-color: #d4af37;
+            color: #064e3b;
+        }
+
+        /* --- MOBILE NAVIGATION --- */
+        .mobile-nav {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                display: none !important;
+            }
+
+            .mobile-nav {
+                display: block !important;
+                background-color: #064e3b;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                border-bottom: 2px solid #d4af37;
+            }
+
+            .mobile-top-bar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 15px;
+                height: 60px;
+            }
+
+            .m-left,
+            .m-right {
+                flex: 1;
+            }
+
+            .m-center {
+                flex: 1;
+                text-align: center;
+            }
+
+            .m-right {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .mobile-bismillah {
+                color: #fbbf24;
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin: 0;
+                padding: 0;
+            }
+
+            .hamburger {
+                background: none;
+                border: none;
+                color: #fbbf24;
+                font-size: 1.8rem;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            #mobile-menu-list {
+                display: none;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                background-color: #064e3b;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            #mobile-menu-list.show {
+                display: block;
+            }
+
+            #mobile-menu-list li a {
+                color: white;
+                text-decoration: none;
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            }
+
+            .mobile-sub-menu {
+                background-color: #043a2c;
+                display: none;
+                list-style: none;
+                padding: 0;
+                padding-left: 20px;
+            }
+        }
+
+        /* --- SIMPLE HEADER TITLE --- */
+        .header {
+            /* THE BORDER: thickness | style | color */
+            border: 2px solid #d4af37;
+
+            /* Background and Shape */
+            background-color: #147a3e;
+            /* background: url('hm.png') center/cover; */
+            border-radius: 20px;
+            /* Slightly more rounded for the larger size */
+
+            /* BIGGER CONTAINER: Increase padding for more internal space */
+            padding: 40px 20px;
+
+            /* Optional: Controls how wide the header can get */
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            /* Centers the container on the page */
+
+            /* BIGGER FONT */
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 4rem;
+            /* Significant increase in size */
+            font-weight: bold;
+            letter-spacing: 1px;
+            /* Adds a clean, professional look to the text */
+        }
+
+        /* --- DUA CONTENT SECTION --- */
+        .master-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1.5px solid #d4af37;
+            border-radius: 15px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #064e3b;
+            margin-bottom: 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dua-card {
+            margin-bottom: 40px;
+            border-left: 5px solid #e1be4c;
+            padding-left: 15px;
+        }
+
+        .section {
+            padding: 18px 25px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            line-height: 1.8;
+            border: 1px solid #f0f0f0;
+        }
+
+        .arabic-verse {
+            background-color: #ffffff;
+            color: #064e3b;
+            font-size: 1.8rem;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .english-translation {
+            background-color: #f8f9fa;
+            color: #555;
+            font-style: italic;
+        }
+
+        .bangla-translation {
+            background-color: #f4f9f4;
+            color: #064e3b;
+            font-weight: 500;
+        }
+
+        .reference-bar {
+            background-color: #064e3b;
+            color: #fbbf24;
+            text-align: right;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 12px 20px;
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #064e3b;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="/i/index.html" class="logo">মিসবাহ</a>
+        </div>
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="/i/index.html">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">আলোচ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/i/sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="/i/sub/truth.html">চরম সত্য</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/i/about.html">উদ্দেশ্য</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="mobile-top-bar">
+            <div class="m-left"><a href="/i/index.html" class="logo">মিসবাহ</a></div>
+            <div class="m-center">
+                <p class="mobile-bismillah">بسم الله</p>
+            </div>
+            <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
+        </div>
+        <ul id="mobile-menu-list">
+            <li><a href="/i/index.html">প্রচ্ছদ</a></li>
+            <li>
+                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+                <ul class="mobile-sub-menu" id="mobile-sub">
+                    <li><a href="/i/sub/db.html">দোয়া ও বিধান</a></li>
+                    <li><a href="/i/sub/truth.html">চরম সত্য</a></li>
+                </ul>
+            </li>
+            <li><a href="/i/about.html">উদ্দেশ্য</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        জানাজা
+    </div>
+    <div class="master-container">
+        <div class="master-container">
+            <div class="section-title">জানাজার নামাজ শিক্ষা:</div>
+
+            <div class="dua-card">
+                <div class="section bangla-translation">
+                    কাতারবদ্ধ হয়ে ইমামের পিছনে দাঁড়ানো।
+                    <br>
+                    ১. প্রথম তাকবিরের পর ছানা পাঠ।
+                    <br>
+                    ২. দ্বিতীয় তাকবীরের পর দরুদে ইবরাহীম পাঠ।
+                    <br>
+                    ৩. তৃতীয় তাকবিরের মৃত ব্যাক্তির জন্য দোয়া পাঠ।
+                    <br>
+                    ৪. চতুর্থ তাকবির দিয়ে সালাম ফিরিয়ে, হাত নামিয়ে জানাজার নামাজ শেষ করা ।
+                </div>
+                <div class="section bangla-translation">
+                    জানাজার নামাজের নিয়ত:
+                </div>
+                <div class="section arabic-verse">
+                    نَوَيْتُ اَنْ اُؤَدِّىَ لِلَّهِ تَعَا لَى اَرْبَعَ تَكْبِيْرَاتِ صَلَوةِ الْجَنَا زَةِ فَرْضَ
+                    الْكِفَايَةِ وَالثَّنَا ءُ لِلَّهِ تَعَا لَى وَالصَّلَوةُ عَلَى النَّبِىِّ وَالدُّعَا ءُلِهَذَا
+                    الْمَيِّتِ اِقْتِدَتُ بِهَذَا الاِْمَامِ مُتَوَجِّهًا اِلَى جِهَةِ الْكَعْبَةِ الشَّرِ يْفَةِ
+                    اَللَّهُ اَ
+                </div>
+                <div class="section english-translation">
+                    "I intend to perform four takbirs of the Janaza prayer, which is Fard-al-Kifayah, praising Allah,
+                    sending blessings upon the Prophet, and praying for the deceased, following this Imam, facing the
+                    Kaaba. Allahu Akbar."
+                </div>
+                <div class="section bangla-translation">
+                    <b>উচ্চারণ:</b> নাওয়াইতু আন উয়াদ্দিয়া লিল্লাহে তায়ালা আরবা আ তাকবীরাতে ছালাতিল জানাজাতে ফারজুল
+                    কেফায়াতে আচ্ছানাউ লিল্লাহি তায়ালা ওয়াচ্ছালাতু আলান্নাবীয়্যে ওয়াদ্দোয়াউ লেহাযাল মাইয়্যেতে
+                    এক্কতেদায়িতু বিহাযাল ইমাম মুতাওয়াজ্জিহান ইলা জিহাতিল কাবাতিশ শারিফাতে আল্লাহু আকবার।
+                    <br>
+                    <br>
+
+                    এখানে নিয়তে ‘লেহাযাল মাইয়্যেতে’ পুরুষ/ছেলে লাশ হলে পড়তে হবে, আর লাশ নারী/মেয়ে হলে ‘লেহাযিহিল
+                    মাইয়্যেতে’ বলতে হবে।
+                    <br>
+                    <br>
+
+                    ⭐ আরবিতে নিয়ত বাধ্যতামূলক নয়। বাংলায় " আমি চার তাকবিরের সহিত ফরজে কিফায়া জানাজার নামাজ কিবলামুখী
+                    হয়ে
+                    ইমামের পিছনে দাঁড়িয়ে মরহুম ব্যক্তির (পুরুষ/মহিলার) জন্য দোয়া করার উদ্দেশ্যে আদায় করছি। আল্লাহু
+                    আকবার।"
+                    <br>
+                    অথবা মনে মনে করলেও চলবে ।
+                    <br>
+                </div>
+            </div>
+            <br>
+            <div class="dua-card">
+                <h2>১</h2>
+                <div class="section bangla-translation">
+                    <b>প্রথম তাকবীর (ছানা):</b> সুবহানাকা আল্লাহুম্মা ওয়া বিহামদিকা, ওয়া তাবারা কাসমুকা ওয়া তায়ালা
+                    জাদ্দুকা, ওয়া জাল্লা ছানাউকা ওয়া লা ইলাহা গাইরুকা।
+                    <br>
+                    আরবিতে সানা:
+                </div>
+                <div class="section arabic-verse">
+                    سُبْحَا نَكَ اَللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَا لَى جَدُّكَ وَجَلَّ ثَنَاءُكَ
+                    وَلاَ اِلَهَ غَيْرُكَ
+                </div>
+                <div class="section english-translation">
+                    "Glory be to You O Allah, and all praise is Yours. Blessed is Your name and Exalted is Your Majesty.
+                    Glorious is Your praise and there is no god but You."
+                </div>
+                <div class="section bangla-translation">
+                    বাংলা উচ্চারণ:
+                    <br>
+                    "সুবহানাকা আল্লাহুম্মা ওয়া বিহামদিকা, ওয়া তাবারা কাসমুকা ওয়া তায়ালা জাদ্দুকা, ওয়া জাল্লা
+                    ছানাউকা ওয়া লা ইলাহা গাইরুকা।"
+                </div>
+
+
+
+            </div>
+            <br>
+            <div class="dua-card">
+                <h2>২</h2>
+                <div class="section bangla-translation">
+                    দ্বিতীয় তাকবীর বলে দরুদ শরীফ পড়তে হবে যেটা সাধারন নামাজে তাশাহুদের পর পড়া হয়।
+                    <br>
+                    দরুদ শরীফ:
+                </div>
+                <div class="section arabic-verse">
+                    اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى
+                    آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ
+
+                    اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى
+                    آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ
+                </div>
+                <div class="section english-translation">
+                    "O Allah, let Your peace come upon Muhammad and the family of Muhammad, as you sent peace upon
+                    Ibrahim and the family of Ibrahim. Truly, You are Praiseworthy and Glorious."
+                </div>
+                <div class="section bangla-translation">
+                    উচ্চারণ:
+                    <br>
+                    "আল্লাহুম্মা সাল্লিআলা মুহাম্মাদি ওয়া আলা আলি মুম্মাদিন কামা সাল্লাইতা আলা ইব্রাহিমা ওয়া আলা আলি
+                    ইব্রাহিমা ইন্নাকা হামিদুম্মাজীদ। আল্লাহুম্মা বারিক আলা মুহাম্মাদিন ওয়া আলা আলি মুহাম্মাদিন কামা
+                    বারাকতা আলা ইব্রাহিমা ওয়া আলা আলি ইব্রাহিমা ইন্নাকা হামীদুম্মাজীদ।"
+                </div>
+
+            </div>
+            <br>
+            <div class="dua-card">
+                <h2>৩</h2>
+                <div class="section bangla-translation">
+
+                    তৃতীয় তাকবীর আদায় করে জানাজার দোয়া পড়তে হয়।
+                    <br>
+                    জানাজার দোয়া:
+                </div>
+                <div class="section arabic-verse">
+                    اللَّهُمَّ اغْفِرْ لِحَيِّنَا وَمَيِّتِنَا وَشَاهِدِنَا وَغَائِبِنَا وَصَغِيْرِنَا وَكَبِيْرِنَا
+                    وَذَكَرِنَا وَأُنْثَانَا اللَّهُمَّ مَنْ أَحْيَيْتَهُ مِنَّا فَأَحْيِهِ عَلَى الْإِسْلَامِ وَمَنْ
+                    تَوَفَّيْتَهُ مِنَّا فَتَوَفَّهُ عَلَى الْإِيمَانِ
+                </div>
+                <div class="section english-translation">
+                    "O Allah, forgive our living and our dead, those present and those absent, our young and our old,
+                    our males and our females. O Allah, whomsoever You keep alive, keep him alive on Islam, and
+                    whomsoever You take away, take him away on Faith."
+                </div>
+                <div class="section bangla-translation">
+                    উচ্চারণ:
+                    <br>
+                    "আল্লাহুম্মাগফিরলি হাইয়্যেনা ওয়া মাইয়্যিতিনা ওয়া শাহিদিনা ওয়া গায়িইবিনা ও ছাগীরিনা ও কাবীরিনা
+                    ও যাকারিনা ও উনছানা। আল্লাহুম্মা মান আহইয়াইতাহু মিন্না ফাআহয়িহি আলাল ইসলামী ওয়া মান তাওয়াফ
+                    ফাইতাহু মিন্না ফাতাওয়াফ ফাহু আলাল ঈমান বেরাহমাতিকা ইয়া আর হামার রাহীমিন।"
+                    <br>
+                    ⭐ তবে নাবালক ছেলের ক্ষেত্রে জানাজার দোয়া পড়তে হবে,
+                </div>
+
+
+                <div class="section arabic-verse">
+                    اَللَّهُمَّ اجْعَلْهُ لَنَا فَرْطًا وْاَجْعَلْهُ لَنَا اَجْرًا وَذُخْرًا وَاجْعَلْهُ لَنَا شَافِعًا
+                    وَمُشَفَّعًا
+
+                </div>
+                <div class="section english-translation">
+                    "O Allah, make him a forerunner for us, and make him a reward and a treasure for us, and make him an
+                    intercessor and one whose intercession is accepted."
+                </div>
+                <div class="section bangla-translation">
+
+                    উচ্চারণ:
+                    <br>
+                    "আল্লাহুম্মাজ আল হুলানা ফারতাও ওয়াজ আল হুলানা আজরাও ওয়া যুখরাঁও ওয়াজ আলহুলানা শাফিয়াও ওয়া
+                    মুশাফ্ফায়ান।"
+                    <br>
+                    ⭐ নাবালিকা মেয়ের ক্ষেত্রে জানাজার দোয়া পড়তে হবে,
+                </div>
+
+
+                <div class="section arabic-verse">
+                    اللَّهُمَّ اجْعَلْهَا لَنَا فَرْطًا وَاجْعَلْهَا لَنَا اَجْرًا وَذُخْرًاوَاجْعَلْهَا لَنَا شَافِعَةً
+                    وَمُشَفَّعَة
+                </div>
+                <div class="section english-translation">
+                    "O Allah, make her a forerunner for us, and make her a reward and a treasure for us, and make her an
+                    intercessor and one whose intercession is accepted."
+                </div>
+                <div class="section bangla-translation">
+                    উচ্চারণ:
+                    <br>
+                    "আল্লাহুম্মাজ আলহা লানা ফারতাও ওয়াজ আলহা লানা আজরাও ওয়া যুখরাও ওয়াজ আলহা লানা শাফিয়াও ওয়া মুশাফ
+                    ফায়ান।"
+                </div>
+
+            </div>
+            <br>
+            <div class="dua-card">
+                <h2>৪</h2>
+                <div class="section bangla-translation">
+                    এরপর চতুর্থ তাকবীর দিয়ে একটু নীরব থেকে ডানে এবং বামে সালাম ফিরিয়ে নামাজ শেষ করতে হবে।
+                    <br><br>
+
+                    যদি কারো নামাজে আসতে দেরি হয়ে যায়, তবে ইমাম সাহেবকে অনুসরণ করতে হবে। সম্ভব হলে চার তাকবীর আদায়
+                    করে নিতে হবে, তা যদি সম্ভব না হয়, তবে ইমাম সাহবকে অনুসরণ করে সালাম ফিরিয়ে নিয়ে জানাজা নামাজ
+                    সম্পন্ন করবেন। জানাজা নামাজ জামাতে আদায় করতে হয়,তাই এটি কাজা পড়ার সুযোগ নেই।
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+
+
+
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu-list');
+            menu.classList.toggle('show');
+        }
+        function toggleMobileSub(e) {
+            e.preventDefault();
+            var sub = document.getElementById('mobile-sub');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+                var menu = document.getElementById('mobile-menu-list');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
