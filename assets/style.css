@@ -376,7 +376,8 @@ header.fact-hero h1 {
 /* Subjects Grid (index.html) */
 .subjects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.333% - 18px), 1fr));
+    justify-content: center;
     gap: 25px;
     margin-top: 35px;
 }
@@ -424,7 +425,8 @@ header.fact-hero h1 {
 /* Topics Grid */
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.333% - 14px), 1fr));
+    justify-content: center;
     gap: 20px;
 }
 
