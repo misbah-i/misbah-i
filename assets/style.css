@@ -376,7 +376,7 @@ header.fact-hero h1 {
 /* Subjects Grid (index.html) */
 .subjects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin-top: 35px;
 }
@@ -424,7 +424,7 @@ header.fact-hero h1 {
 /* Topics Grid */
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -704,6 +704,13 @@ footer {
 }
 
 /* Responsiveness overrides for smartphone and tablet devices */
+@media (max-width: 992px) {
+    .subjects-grid, .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
     .subjects-grid, .topics-grid {
         grid-template-columns: 1fr;
