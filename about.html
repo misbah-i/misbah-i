@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="media/logo.svg" type="image/svg+xml">
+    <title>মিসবাহ সম্পর্কে</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo">মিসবাহ</a>
+        </div>
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="index.html">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#">আলোচ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="sub/fact.html">চরম সত্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="active">উদ্দেশ্য</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <nav class="mobile-nav">
+        <div class="mobile-top-bar">
+            <div class="m-left"><a href="index.html" class="logo">মিসবাহ</a></div>
+            <div class="m-center">
+                <p class="mobile-bismillah">بسم الله</p>
+            </div>
+            <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
+        </div>
+        <ul id="mobile-menu-list">
+            <li><a href="index.html">প্রচ্ছদ</a></li>
+            <li>
+                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+                <ul class="mobile-sub-menu" id="mobile-sub">
+                    <li><a href="sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="sub/fact.html">চরম সত্য</a></li>
+                </ul>
+            </li>
+            <li><a href="#">উদ্দেশ্য</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-header">
+        <h1>উদ্দেশ্য</h1>
+        <p>মানুষ ও প্রাণীর মাঝে পার্থক্য হচ্ছে, মানুষের বুদ্ধি আছে</p>
+    </div>
+
+    <div class="about-container">
+        <div class="main-card">
+            <h2 class="section-title">বিস্তারিত</h2>
+            <p class="bio-text">
+                মিসবাহ একটি ব্যক্তিগত পেইজ যেখানে ইসলামিক বিষয়সমূহের সত্য,মিথ্যা,মানুষের ভ্রান্ত
+                ধারনা,অবজ্ঞা,ইসলাম নিয়ে সকল গবেষণা ,জরিপ ইত্যাদি নিয়ে আলোচনা করা হয়েছে ।
+            </p>
+        </div>
+
+        <h2 style="text-align: center; color: #064e3b; margin-bottom: 10px;">যোগাযোগ ও স্বত্বাধিকার</h2>
+
+        <div class="profile-section">
+            <div class="info-card">
+
+                <div class="text-content">
+                    <h2>তাহসিন হাসান</h2>
+                    <p>শিক্ষার্থী, কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিং</p>
+                    <p>ইসলামী বিশ্ববিদ্যালয়, বাংলাদেশ</p>
+                </div>
+            </div>
+        </div>
+        <div class="links-grid">
+            <a href="https://www.facebook.com/mohammad.tahsin.hasan" target="_blank" class="link-card">
+                <div class="icon">👤</div>
+                <span>ফেসবুক</span>
+                <small>Mohammad Tahsin Hasan</small>
+            </a>
+
+            <a href="https://www.linkedin.com/in/tahsinhasan1/" target="_blank" class="link-card">
+                <div class="icon">💼</div>
+                <span>লিঙ্কডইন</span>
+                <small>Tahsin Hasan</small>
+            </a>
+
+            <a href="mailto:tahsin.hasan.cse@std.iu.ac.bd" class="link-card">
+                <div class="icon">📧</div>
+                <span>ইমেইল</span>
+                <small>tahsin.hasan.cse@std.iu.ac.bd</small>
+            </a>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <!-- <p>&copy; 2026 Misbah All Rights Researved</p> -->
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu-list');
+            menu.classList.toggle('show');
+        }
+        function toggleMobileSub(e) {
+            e.preventDefault();
+            var sub = document.getElementById('mobile-sub');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+                var menu = document.getElementById('mobile-menu-list');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

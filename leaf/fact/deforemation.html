@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../media/logo.svg" type="image/svg+xml">
+    <title>বাণী বিকৃতি - মিসবাহ</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="../../index.html" class="logo">মিসবাহ</a>
+        </div>
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="../../index.html">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">আলোচ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="../../sub/fact.html">চরম সত্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../about.html">উদ্দেশ্য</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="mobile-top-bar">
+            <div class="m-left"><a href="../../index.html" class="logo">মিসবাহ</a></div>
+            <div class="m-center">
+                <p class="mobile-bismillah">بسم الله</p>
+            </div>
+            <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
+        </div>
+        <ul id="mobile-menu-list">
+            <li><a href="../../index.html">প্রচ্ছদ</a></li>
+            <li>
+                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+                <ul class="mobile-sub-menu" id="mobile-sub">
+                    <li><a href="../../sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="../../sub/fact.html">চরম সত্য</a></li>
+                </ul>
+            </li>
+            <li><a href="../../about.html">উদ্দেশ্য</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        বাণী বিকৃতি
+    </div>
+    <div class="master-container">
+        <div class="section-title">📖 কুরআনের আলোকে:</div>
+
+        <div class="dua-card">
+            <div class="section arabic-verse"> أَفَتَطْمَعُونَ أَن يُؤْمِنُوا لَكُمْ وَقَدْ كَانَ فَرِيقٌ مِّنْهُمْ
+                يَسْمَعُونَ كَلَامَ اللَّهِ
+                ثُمَّ يُحَرِّفُونَهُ مِن بَعْدِ مَا عَقَلُوهُ وَهُمْ يَعْلَمُونَ</div>
+            <div class="section english-translation"> "O Muslims, do you expect them to believe in you? Among them was a
+                party who used to listen to
+                the words of Allah, then change them while they were aware."</div>
+            <div class="section bangla-translation"> "হে মুসলমানগণ, তোমরা কি আশা কর যে, তারা তোমাদের কথায় ঈমান আনবে?
+                তাদের মধ্যে একদল ছিল, যারা
+                আল্লাহর বাণী শ্রবণ করত; অতঃপর বুঝে-শুনে তা পরিবর্তন করে দিত এবং তারা তা অবগত ছিল।"</div>
+            <div class="reference-bar"> 📚 সূরা বাকারা - ৭৫</div>
+        </div>
+        <div class="dua-card">
+            <div class="section arabic-verse"> وَإِن كُنتُمْ فِي رَيْبٍ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا
+                بِسُورَةٍ مِّن مِّثْلِهِ
+                وَادْعُوا شُهَدَاءَكُم مِّن دُونِ اللَّهِ إِن كُنتُمْ صَادِقِينَ
+            </div>
+            <div class="section english-translation"> "If you are in doubt about what We have revealed to Our servant,
+                then produce a Surah like it.
+                And bring with you those who help you - besides Allah, if you are truthful."</div>
+            <div class="section bangla-translation"> "এতদসম্পর্কে যদি তোমাদের কোন সন্দেহ থাকে যা আমি আমার বান্দার
+                প্রতি অবতীর্ণ করেছি, তাহলে এর মত
+                একটি সূরা রচনা করে নিয়ে এস। তোমাদের সেসব সাহায্যকারীদেরকে সঙ্গে নাও-এক আল্লাহকে ছাড়া, যদি
+                তোমরা সত্যবাদী হয়ে থাকো"</div>
+            <div class="reference-bar"> 📚 সূরা বাকারা -২৩</div>
+        </div>
+
+
+
+    </div>
+
+    <footer>
+
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu-list');
+            menu.classList.toggle('show');
+        }
+        function toggleMobileSub(e) {
+            e.preventDefault();
+            var sub = document.getElementById('mobile-sub');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+                var menu = document.getElementById('mobile-menu-list');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

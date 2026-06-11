@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="media/logo.svg" type="image/svg+xml">
+    <title>মিসবাহ</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo">মিসবাহ</a>
+        </div>
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="index.html" class="active">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#">আলোচ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="sub/fact.html">চরম সত্য</a></li>
+                        <li><a href="sub/misc.html">অন্যান্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">উদ্দেশ্য</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="mobile-top-bar">
+            <div class="m-left"><a href="index.html" class="logo">মিসবাহ</a></div>
+            <div class="m-center">
+                <p class="mobile-bismillah">بسم الله</p>
+            </div>
+            <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
+        </div>
+        <ul id="mobile-menu-list">
+            <li><a href="index.html">প্রচ্ছদ</a></li>
+            <li>
+                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+                <ul class="mobile-sub-menu" id="mobile-sub">
+                    <li><a href="sub/db.html">দোয়া ও বিধান</a></li>
+                    <li><a href="sub/fact.html">চরম সত্য</a></li>
+                    <li><a href="sub/misc.html">অন্যান্য</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">উদ্দেশ্য</a></li>
+        </ul>
+    </nav>
+
+    <header class="index-hero">
+        <h1>مِصْبَاح</h1>
+        <p>" তবে কি তোমরা গ্রন্থের কিয়দংশ বিশ্বাস কর এবং কিয়দংশ অবিশ্বাস কর? "</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title"> আলোচ্য </h2>
+
+        <div class="subjects-grid">
+            <a href="sub/db.html" class="subject-card">
+                <h3>দোয়া ও বিধান</h3>
+                <p>নিশ্চয়ই আমি তোমাদের খুব কাছেই আছি</p>
+            </a>
+
+            <a href="sub/fact.html" class="subject-card">
+                <h3>চরম সত্য</h3>
+                <p>আল্লাহর ফয়সালাই শেষ কথা এবং এটাই চরম সত্য</p>
+            </a>
+
+            <a href="sub/misc.html" class="subject-card">
+                <h3>অন্যান্য</h3>
+                <p></p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <!-- <p>&copy; 2026 Misbah All Rights Researved</p> -->
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu-list');
+            menu.classList.toggle('show');
+        }
+        function toggleMobileSub(e) {
+            e.preventDefault();
+            var sub = document.getElementById('mobile-sub');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+                var menu = document.getElementById('mobile-menu-list');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

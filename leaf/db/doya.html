@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../media/logo.svg" type="image/svg+xml">
+    <title>দোয়া - মিসবাহ</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="../../index.html" class="logo">মিসবাহ</a>
+        </div>
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="../../index.html">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">আলোচ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="../../sub/fact.html">চরম সত্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../about.html">উদ্দেশ্য</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="mobile-top-bar">
+            <div class="m-left"><a href="../../index.html" class="logo">মিসবাহ</a></div>
+            <div class="m-center">
+                <p class="mobile-bismillah">بسم الله</p>
+            </div>
+            <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
+        </div>
+        <ul id="mobile-menu-list">
+            <li><a href="../../index.html">প্রচ্ছদ</a></li>
+            <li>
+                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+                <ul class="mobile-sub-menu" id="mobile-sub">
+                    <li><a href="../../sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="../../sub/fact.html">চরম সত্য</a></li>
+                </ul>
+            </li>
+            <li><a href="../../about.html">উদ্দেশ্য</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        দোয়া
+    </div>
+    <div class="master-container">
+        <div class="section-title">দোয়া সমূহ:</div>
+
+        <div class="dua-card">
+            <div class="section arabic-verse"> رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ
+                وَاجْعَلْنَا
+                لِلْمُتَّقِينَ
+                إِمَامًا</div>
+            <div class="section english-translation"> "Our Lord, grant us from among our wives and offspring comfort to
+                our eyes and make us an
+                example
+                for the righteous.”</div>
+            <div class="section bangla-translation"> "হে আমাদের পালনকর্তা, আমাদের স্ত্রীদের পক্ষ থেকে এবং আমাদের
+                সন্তানদের পক্ষ থেকে আমাদের জন্যে
+                চোখের
+                শীতলতা দান কর এবং আমাদেরকে মুত্তাকীদের জন্যে আদর্শস্বরূপ কর।"</div>
+            <div class="reference-bar"> 📚 উত্তম বংশধর এর জন্য ,সুরা আল ফুরকান - ৭৪</div>
+        </div>
+        <div class="dua-card">
+            <div class="section arabic-verse"> لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ
+            </div>
+            <div class="section english-translation"> "There is no deity except You; exalted are You. Indeed, I have
+                been of the wrongdoers.”</div>
+            <div class="section bangla-translation">"তুমি ছাড়া অন্য কোন উপাস্য নেই, তুমি পবিত্র! নিশ্চয়ই আমি জালিমদের
+                (পরাধীন/পাপিষ্ঠদের)
+                অন্তর্ভুক্ত হয়ে গেছি।"</div>
+            <div class="reference-bar"> 📚 সূরা আল-আম্বিয়া (২১:৮৭)</div>
+        </div>
+
+        <div class="dua-card">
+            <div class="section arabic-verse"> ادْعُوا رَبَّكُمْ تَضَرُّعًا وَخُفْيَةً ۚ إِنَّهُ لَا يُحِبُّ
+                الْمُعْتَدِينَ</div>
+            <div class="section english-translation"> "Call upon your Lord in humility and privately; indeed, He does
+                not like transgressors."</div>
+            <div class="section bangla-translation">"তোমরা তোমাদের রবকে ডাক বিনয়ের সাথে ও গোপনে। নিশ্চয়ই তিনি
+                সীমালঙ্ঘনকারীদের পছন্দ করেন না।"</div>
+            <div class="reference-bar"> 📚 সূত্র: সূরা আল-আ'রাফ (৭), আয়াত ৫৫</div>
+        </div>
+
+
+        <div class="dua-card">
+            <div class="section arabic-verse"> اللَّهُمَّ إِنِّي أَسْأَلُكَ بِأَنِّي أَشْهَدُ أَنَّكَ أَنْتَ اللَّهُ لاَ
+                إِلَهَ إِلاَّ أَنْتَ الأَحَدُ الصَّمَدُ الَّذِي لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا
+                أَحَدٌ</div>
+            <div class="section english-translation"> "O Allah, I ask You by my testifying that You are Allah, there is
+                no god but You, the One, the Eternal Refuge, who neither begets nor is born, nor is there to Him any
+                equivalent."</div>
+            <div class="section bangla-translation">"হে আল্লাহ! আমি আপনার নিকট প্রার্থনা করছি এই উসিলায় যে— আমি সাক্ষ্য
+                দিচ্ছি আপনিই আল্লাহ, আপনি ছাড়া অন্য কোনো উপাস্য নেই। আপনি একক, অমুখাপেক্ষী। যিনি কাউকে জন্ম দেননি এবং
+                জন্ম নেননি, আর যাঁর সমকক্ষ কেউ নেই।"</div>
+            <div class="reference-bar"> 📚 সূত্র: ইসমে আজম</div>
+        </div>
+
+    </div>
+    </div>
+
+    <footer>
+
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu-list');
+            menu.classList.toggle('show');
+        }
+        function toggleMobileSub(e) {
+            e.preventDefault();
+            var sub = document.getElementById('mobile-sub');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+                var menu = document.getElementById('mobile-menu-list');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

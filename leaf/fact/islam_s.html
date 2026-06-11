@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../media/logo.svg" type="image/svg+xml">
+    <title>ইসলামের সার্বভৌমত্ব - মিসবাহ</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="../../index.html" class="logo">মিসবাহ</a>
+        </div>
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="../../index.html">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">আলোচ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="../../sub/fact.html">চরম সত্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../about.html">উদ্দেশ্য</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="mobile-top-bar">
+            <div class="m-left"><a href="../../index.html" class="logo">মিসবাহ</a></div>
+            <div class="m-center">
+                <p class="mobile-bismillah">بسم الله</p>
+            </div>
+            <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
+        </div>
+        <ul id="mobile-menu-list">
+            <li><a href="../../index.html">প্রচ্ছদ</a></li>
+            <li>
+                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+                <ul class="mobile-sub-menu" id="mobile-sub">
+                    <li><a href="../../sub/db.html">দোয়া ও বিধান</a></li>
+                        <li><a href="../../sub/fact.html">চরম সত্য</a></li>
+                </ul>
+            </li>
+            <li><a href="../../about.html">উদ্দেশ্য</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        ইসলামের সার্বভৌমত্ব
+    </div>
+    <div class="master-container">
+        <div class="section-title">📖 কুরআনের আলোকে:</div>
+
+        <div class="dua-card">
+            <div class="section arabic-verse">رَبَّنَا إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ</div>
+            <div class="section english-translation">"Indeed, the religion in the sight of Allah is Islam"</div>
+            <div class="section bangla-translation">"নিশ্চয় আল্লাহর নিকট একমাত্র দ্বীন হল ইসলাম"</div>
+            <div class="reference-bar">📚 সূরা আলে ইমরান (৩:১৯)</div>
+        </div>
+        <br>
+        <div class="dua-card">
+            <div class="section arabic-verse"> وَمَن يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَن يُقْبَلَ مِنْهُ وَهُوَ
+                فِي الْآخِرَةِ مِنَ
+                الْخَاسِرِينَ</div>
+            <div class="section english-translation">"And whoever desires other than Islam as religion—never will it be
+                accepted from him, and he, in
+                the Hereafter, will be among the losers"</div>
+            <div class="section bangla-translation">"আর যে ব্যক্তি ইসলাম ব্যতীত অন্য কোন দ্বীন গ্রহণ করতে চাইবে কক্ষনো
+                তার সেই দ্বীন কবূল করা হবে না
+                এবং আখেরাতে সে ব্যক্তি ক্ষতিগ্রস্তদের অন্তর্ভুক্ত হবে"</div>
+            <div class="reference-bar">📚 সূরা আলে ইমরান (৩:৮৫)</div>
+        </div>
+        <br>
+        <div class="dua-card">
+            <div class="section arabic-verse"> هُوَ الَّذِي أَرْسَلَ رَسُولَهُ بِالْهُدَىٰ وَدِينِ الْحَقِّ لِيُظْهِرَهُ
+                عَلَى الدِّينِ كُلِّهِ
+                وَلَوْ كَرِهَ الْمُشْرِكُونَ</div>
+            <div class="section english-translation">"It is He who has sent His Messenger with guidance and the religion
+                of truth to manifest it over
+                all religion, although those who associate others with Allah dislike it"</div>
+            <div class="section bangla-translation"> "তিনিই সেই সত্তা যিনি তাঁর রসূলকে হেদায়াত ও সত্য দ্বীন সহকারে
+                পাঠিয়েছেন, যেন একে অন্য সমস্ত
+                দ্বীনের ওপর জয়যুক্ত করেন, যদিও মুশরিকরা তা অপছন্দ করে"</div>
+            <div class="reference-bar"> 📚 সূরা আত-তাওবা (৯:৩৩)</div>
+        </div>
+    </div>
+
+    <footer>
+
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu-list');
+            menu.classList.toggle('show');
+        }
+        function toggleMobileSub(e) {
+            e.preventDefault();
+            var sub = document.getElementById('mobile-sub');
+            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+                var menu = document.getElementById('mobile-menu-list');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
