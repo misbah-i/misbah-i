@@ -700,3 +700,63 @@ footer {
     color: white;
     margin-top: auto;
 }
+
+/* Responsiveness overrides for smartphone and tablet devices */
+@media (max-width: 768px) {
+    .subjects-grid {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .topics-grid {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .container.boxed, .master-container {
+        width: 95%;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    header.index-hero h1, header.db-hero h1, header.fact-hero h1, .about-header h1 {
+        font-size: 2rem;
+    }
+
+    header.index-hero p, .about-header p {
+        font-size: 1.1rem;
+    }
+
+    .about-header::after {
+        border-left-width: 40px;
+        border-right-width: 40px;
+        border-bottom-width: 35px;
+    }
+
+    .about-container {
+        margin-top: -30px;
+    }
+
+    .about-container .main-card, 
+    .about-container .info-card {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arabic-verse {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .reference-bar {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
